@@ -64,7 +64,7 @@ body {
   }
   
   .content h2 {
-    color: #4CAF50;
+    color: #ffa781;
   }
   
   .content p {
@@ -81,7 +81,7 @@ body {
   
   .quiz-section h3 {
     margin-bottom: 20px;
-    color: #4CAF50;
+    color: #ffa781;
   }
   
   .quiz {
@@ -97,7 +97,7 @@ body {
   }
   
   .quiz button {
-    background-color: #4CAF50;
+    background-color: #ffa781;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -110,7 +110,7 @@ body {
   
   .result {
     margin-top: 10px;
-    color: #4CAF50;
+    color: #ffa781;
     font-weight: bold;
   }
   
