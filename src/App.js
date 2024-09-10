@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Firstgame from "./firstgame/Firstgame";
 import logo from "./logo.svg";
 import "./App.css";
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         {/* Default route - will render Firstgame */}
         <Route path="/" element={<Firstgame />} />
-        
+
         {/* Route for My Learning Section */}
         <Route path="/FirstArticle" element={<Articles />} />
       </Routes>
