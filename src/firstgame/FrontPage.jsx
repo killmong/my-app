@@ -1,59 +1,171 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./FrontPage.css";
 
-function App() {
+const FrontPage = () => {
+  useEffect(() => {
+    // Cursor effect
+    const handleMouseMove = (e) => {
+      const cursor = document.getElementById("cursor");
+      const blurCursor = document.getElementById("cursor-blur");
+
+      cursor.style.left = `${e.pageX}px`;
+      cursor.style.top = `${e.pageY}px`;
+
+      blurCursor.style.left = `${e.pageX - 30}px`;
+      blurCursor.style.top = `${e.pageY - 30}px`;
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    // Arrow scroll effect
+    const arrow = document.getElementById("arrow");
+    arrow.addEventListener("click", () => {
+      document.getElementById("page2").scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-gray-800 text-white py-4 shadow-md">
-        <div className="container mx-auto flex justify-between items-center px-6">
-          <h1 className="text-xl font-bold">Pathfinder Learning Interface</h1>
-          <nav>
-            <ul className="flex space-x-6">
-              <li><a href="#home" className="hover:underline">Home</a></li>
-              <li><a href="#topics" className="hover:underline">Topics</a></li>
-              <li><a href="#about" className="hover:underline">About</a></li>
-              <li><a href="#contact" className="hover:underline">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+    <div>
+      <header id="nav">
+        <img
+          src="https://www.freeiconspng.com/uploads/emblem-ashoka-chakra-india-shrihub-background-23.png"
+          alt="Ashoka Chakra"
+          className="logo"
+        />
+        <nav>
+          <ul>
+            <li>
+              <a href="#page1">Preamble</a>
+            </li>
+            <li>
+              <a href="#page2">Fundamental Rights</a>
+            </li>
+            <li>
+              <a href="#page3">Directive Principles</a>
+            </li>
+            <li>
+              <a href="#page4">Schedules</a>
+            </li>
+          </ul>
+        </nav>
       </header>
 
-      {/* Main Content Area */}
-      <main className="flex-1 container mx-auto py-12 px-6 flex">
-        {/* Sidebar */}
-        <aside className="w-1/4 bg-gray-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold mb-4">Select a Topic</h2>
-          <ul className="space-y-4">
-            <li><a href="#" className="text-blue-600 hover:underline">HTML Basics</a></li>
-            <li><a href="#" className="text-blue-600 hover:underline">CSS Fundamentals</a></li>
-            <li><a href="#" className="text-blue-600 hover:underline">JavaScript Introduction</a></li>
-            <li><a href="#" className="text-blue-600 hover:underline">React Basics</a></li>
-            <li><a href="#" className="text-blue-600 hover:underline">Node.js Overview</a></li>
-          </ul>
-        </aside>
+      <div id="cursor"></div>
+      <div id="cursor-blur"></div>
 
-        {/* Main Content Section */}
-        <section className="flex-1 bg-white p-8 ml-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-6">Welcome to Pathfinder Learning</h2>
-          <p className="mb-6">
-            Select a topic from the sidebar to start learning. Each topic contains a step-by-step guide to help
-            you understand the fundamentals and advanced concepts.
-          </p>
+      <section id="hero">
+        <video
+          autoPlay
+          loop
+          muted
+          src="https://www.indianconstitution.in/assets/constitution_video.mp4"
+          className="background-video"
+        ></video>
+        <div className="hero-text">
+          <h1>WE THE PEOPLE OF INDIA</h1>
+          <h2>WELCOME TO THE INDIAN CONSTITUTION!</h2>
           <p>
-            This interface is designed to be intuitive and easy to follow, similar to W3Schools' Pathfinder. 
-            You can explore various topics and learn at your own pace.
+            The Constitution of India is the supreme law of the land, outlining
+            the framework for the governance of our great nation. A tribute to
+            democracy, justice, liberty, equality, and fraternity for all
+            citizens.
           </p>
-        </section>
-      </main>
+          <div id="arrow">
+            <i className="ri-arrow-down-line"></i>
+          </div>
+        </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto text-center">
-          &copy; 2024 Pathfinder Learning. All rights reserved.
+      <section id="main-content">
+        <article id="page1" className="page-section">
+          <h3>Preamble</h3>
+          <p>
+            The Preamble serves as an introduction to the Constitution,
+            reflecting the core values of justice, liberty, equality, and
+            fraternity.
+          </p>
+        </article>
+
+        <article id="page2" className="page-section">
+          <h3>Fundamental Rights</h3>
+          <p>
+            Fundamental Rights guarantee the protection of rights such as
+            freedom of speech, equality, and right to life to all citizens.
+          </p>
+        </article>
+
+        <article id="page3" className="page-section">
+          <h3>Directive Principles</h3>
+          <p>
+            Directive Principles guide the government in making policies aimed
+            at ensuring social justice and welfare for all citizens.
+          </p>
+        </article>
+
+        <article id="page4" className="page-section">
+          <h3>Schedules</h3>
+          <p>
+            The schedules outline important legal, social, and economic
+            provisions in the Constitution.
+          </p>
+        </article>
+      </section>
+
+      <section id="pathfinder">
+        <h3>Explore More Learning Resources</h3>
+        <div className="pathfinder-links">
+          <div className="pathfinder-item">
+            <a href="/FirstArticle">My Learning</a>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div className="footer-content">
+          <div className="footer-section about">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.unjKVcmbx5qHF3nFF_nRVQHaE7&pid=Api&P=0&h=180"
+              alt="Ashoka Chakra"
+            />
+            <p>
+              Learn more about the Indian Constitution, a foundation of our
+              democracy, and its relevance in today's context.
+            </p>
+          </div>
+
+          <div className="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="#page1">Preamble</a>
+              </li>
+              <li>
+                <a href="#page2">Fundamental Rights</a>
+              </li>
+              <li>
+                <a href="#page3">Directive Principles</a>
+              </li>
+              <li>
+                <a href="#page4">Schedules</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="footer-section contact">
+            <h3>Contact Us</h3>
+            <p>Constitution Hall, New Delhi, India</p>
+            <p>Phone: 011-12345678</p>
+            <p>Email: info@constitution.in</p>
+          </div>
         </div>
       </footer>
     </div>
   );
-}
+};
 
-export default App;
+export default FrontPage;
