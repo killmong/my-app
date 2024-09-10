@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-no-undef */
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Firstgame from "./firstgame/Firstgame";
 import logo from "./logo.svg";
 import "./App.css";
